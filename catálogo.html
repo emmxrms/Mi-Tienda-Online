@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo de productos - Mi tienda de maquillaje</title>
+   <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1>Nuestro catálogo</h1>
+        <p>¡Descubre nuestra amplia selección de productos de maquillaje!</p>
+
+    <div class="productos">
+           <img src="labial.webp" alt="Labial">
+           <h3>Labial</h3>
+              <p>$120.00 MXN</p>
+            <button onclick="agregarAlCarrito('Labial', 120.00)">Agregar al carrito</button>
+    </div>
+
+    <div class="productos">
+           <img src="base.avif" alt="Base de maquillaje">
+           <h3>Base de maquillaje</h3>
+              <p>$250.00 MXN</p>
+            <button onclick="agregarAlCarrito('Base de maquillaje', 250.00)">Agregar al carrito</button>
+    </div>
+
+    <div class="productos">
+           <img src="rimel.jpg" alt="Rímel">
+           <h3>Rímel</h3>
+              <p>$150.00 MXN</p>
+            <button onclick="agregarAlCarrito('Rímel', 150.00)">Agregar al carrito</button>
+    </div>
+
+    <div class="productos">
+           <img src="sombras.webp" alt="Sombras de ojos">
+           <h3>Sombras de ojos</h3>
+              <p>$200.00 MXN</p>
+            <button onclick="agregarAlCarrito('Sombras de ojos', 200.00)">Agregar al carrito</button>
+    </div>
+
+<section class="carrito">
+    <h2>Carrito de compras</h2>
+
+    <p>Productos: <span id="contador">0</span></p>
+
+    <div id="carrito"></div>
+
+    <h3>Total: $<span id="total">0.00</span> MXN</h3>
+
+    <button onclick="vaciarCarrito()">Vaciar carrito</button>
+</section>
+    
+    <div class="contenedor">
+      <p>¡Gracias por visitar nuestro catálogo!</p>
+       <a href="index.html"><button>Volver a la página principal</button></a>
+        <p>© 2026 Mi tienda de maquillaje. Todos los derechos reservados.</p>
+    </div>
+
+</body>
+
+</html>
