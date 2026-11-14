@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de productos - Mi tienda de maquillaje</title>
    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -14,57 +14,118 @@
     <div class="contenedor">
         <h1>Nuestro catálogo</h1>
         <div class="buscador">
-            <input type="text"
-            id="BuscarProducto"
-            placeholder="Buscar Productos...">
-        </div>
-        <p>¡Descubre nuestra amplia selección de productos de maquillaje!</p>
-
-    <div class="productos">
-           <img src="labial.webp" alt="Labial">
-           <h3>Labial</h3>
-              <p>$120.00 MXN</p>
-            <button onclick="agregarAlCarrito('Labial', 120.00)">Agregar al carrito</button>
+            <input 
+            type="text"
+            id="buscarProducto"
+            placeholder="¿Qué poducto estás buscando?"
+            autocomplete="off">
     </div>
 
-    <div class="productos">
+     <section class="ofertas">
+
+    <h2> ✨ Ofertas especiales ✨ </h2>
+
+    <p>¡Aprovecha nuestras promociones!</p>
+
+    <div class="oferta-producto">
+        <span class="etiqueta-oferta">OFERTA</span>
+
+        <h3>Labial</h3>
+
+        <p class="precio-anterior">$150.00 MXN</p>
+
+        <p class="precio-oferta">$120.00 MXN</p>
+
+        <p>¡Aprovecha esta promoción!</p>
+    </div>
+
+</section>
+
+        <p>¡Descubre nuestra amplia selección de productos de maquillaje!</p>
+
+<div class="productos">
+           <img src="labial.webp" alt="Labial">
+           <h3>Labial</h3>
+              <p class="precio-anterior">$150.00 MXN</p>
+              <p class="precio-oferta">$120.00 MXN</p>
+              <span class="etiqueta-oferta">20% DE DESCUENTO </span>
+            <button onclick="agregarAlCarrito('Labial', 120.00)">Agregar al carrito</button>
+</div>
+
+ <div class="productos">
            <img src="base.avif" alt="Base de maquillaje">
            <h3>Base de maquillaje</h3>
               <p>$250.00 MXN</p>
             <button onclick="agregarAlCarrito('Base de maquillaje', 250.00)">Agregar al carrito</button>
-    </div>
+ </div>
 
-    <div class="productos">
+ <div class="productos">
            <img src="rimel.jpg" alt="Rímel">
            <h3>Rímel</h3>
+           <button onclick="agregarAlCarrito('Rímel', 150.00)">Agregar al carrito</button>
               <p>$150.00 MXN</p>
-            <button onclick="agregarAlCarrito('Rímel', 150.00)">Agregar al carrito</button>
-    </div>
+</div>
 
-    <div class="productos">
+ <div class="productos">
            <img src="sombras.webp" alt="Sombras de ojos">
            <h3>Sombras de ojos</h3>
               <p>$200.00 MXN</p>
             <button onclick="agregarAlCarrito('Sombras de ojos', 200.00)">Agregar al carrito</button>
-    </div>
+ </div>
 
 <section class="carrito">
     <h2>Carrito de compras</h2>
 
     <p>Productos: <span id="contador">0</span></p>
 
-    <div id="carrito"></div>
+ <div id="carrito"></div>
 
     <h3>Total: $<span id="total">0.00</span> MXN</h3>
 
     <button onclick="vaciarCarrito()">Vaciar carrito</button>
 </section>
-    
-    <div class="contenedor">
-      <p>¡Gracias por visitar nuestro catálogo!</p>
-       <a href="index.html"><button>Volver a la página principal</button></a>
-        <p>© 2026 Mi tienda de maquillaje. Todos los derechos reservados.</p>
-    </div>
+</div>
+
+<div class="volver-inicio">
+    <a href="index.html">← Volver al inicio</a>
+</div>
+
+<footer class="pie-pagina">
+
+    <h2>Mi tienda de maquillaje</h2>
+
+    <p>Gracias por visitar nuestra tienda 💗</p>
+
+    <div class="redes-sociales">
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="22"
+             height="22"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round">
+
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="18" cy="6" r="1"/>
+
+        </svg>
+
+        <span>Instagram</span>
+
+    </a>
+</div>
+
+    <p class="derechos">
+        © 2026 Mi tienda de maquillaje.
+        Todos los derechos reservados.
+    </p>
+
+</footer>
 
 </body>
 

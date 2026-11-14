@@ -58,6 +58,62 @@ function vaciarCarrito() {
     carrito = [];
     actualizarCarrito();
 }
+// BUSCADOR DE PRODUCTOS
 
+function iniciarBuscador() {
 
+    const buscador = document.getElementById("buscarProducto");
 
+    if (!buscador) return;
+
+    buscador.addEventListener("input", function() {
+
+        const texto = buscador.value.toLowerCase().trim();
+
+        const productos = document.querySelectorAll(".productos");
+
+        productos.forEach(function(producto) {
+
+            const titulo = producto.querySelector("h3");
+
+            if (!titulo) return;
+
+            const nombre = titulo.textContent.toLowerCase();
+
+            producto.style.display = nombre.includes(texto)
+                ? ""
+                : "none";
+
+        });
+
+    });
+
+}
+
+// Esperar a que el HTML esté disponible
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", iniciarBuscador);
+} else {
+    iniciarBuscador();
+}
+function calcularDescuento(precio, porcentaje) {
+
+    let descuento = precio * (porcentaje / 100);
+
+    let precioFinal = precio - descuento;
+
+    return precioFinal;
+
+}
+console.log(calcularDescuento(150, 20));
+console.log(calcularDescuento(250, 15));
+console.log(calcularDescuento(200, 30));
+function mostrarPrecioOferta(precio, porcentaje) {
+
+    let precioFinal = calcularDescuento(precio, porcentaje);
+
+    return precioFinal.toFixed(2);
+
+}
+console.log(mostrarPrecioOferta(150, 20));
