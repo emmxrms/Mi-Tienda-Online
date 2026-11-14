@@ -7,7 +7,7 @@ body {
     url("Tarjeta Agradecimiento para cliente Belleza Maquillaje Rosado Makeup.png");
 
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
@@ -111,4 +111,101 @@ button {
 div.contenedor {
     margin-top: 8px;
     margin-bottom: 5px;
+}
+.buscador {
+    margin: 20px auto;
+    text-align: center;
+}
+.buscador input {
+    max-width: 400px;
+    padding: 12px;
+    width: 80%;
+    border: 2px solid #1d4ed8;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+/* =================================
+   DISEÑO RESPONSIVO PARA CELULARES
+   ================================= */
+
+@media screen and (max-width: 600px) {
+
+    /* Ajustes generales */
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        display: block;
+        width: 100%;
+        min-height: 100vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-position: center center;
+        text-align: center;
+    }
+
+    /* Contenedor principal */
+    .contenedor {
+        width: 100%;
+        min-height: 100vh;
+        padding: 25px 15px;
+        gap: 12px;
+        justify-content: flex-start;
+    }
+
+    /* Títulos */
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    /* Párrafos */
+    p {
+        font-size: 16px;
+    }
+
+    /* Productos */
+    .productos {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        margin: 15px auto;
+        padding: 15px;
+    }
+
+    /* Imágenes de productos */
+    .productos img {
+        width: 100%;
+        max-width: 180px;
+        height: 160px;
+        object-fit: contain;
+    }
+
+    /* Botones */
+    button {
+        max-width: 100%;
+        padding: 12px 18px;
+        font-size: 15px;
+    }
+
+    /* Carrito */
+    .carrito {
+        width: calc(100% - 24px);
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 18px 12px;
+    }
+
+    /* Buscador */
+    .buscador input {
+        width: 90%;
+        max-width: 400px;
+        font-size: 16px;
+    }
 }
