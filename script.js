@@ -1,6 +1,8 @@
-let carrito = [];
+// RECUPERAR EL CARRITO GUARDADO
+let carrito = JSON.parse(localStorage.getItem("carritoCherie")) || [];
 
 function agregarAlCarrito(nombre, precio) {
+
     let productoExistente = carrito.find(
         producto => producto.nombre === nombre
     );
@@ -19,47 +21,51 @@ function agregarAlCarrito(nombre, precio) {
 }
 
 function actualizarCarrito() {
+
+    // GUARDAR EL CARRITO
+    localStorage.setItem("carritoCherie", JSON.stringify(carrito));
+
     let lista = document.getElementById("carrito");
     let contador = document.getElementById("contador");
     let total = document.getElementById("total");
 
-    lista.innerHTML = "";
+    if (lista) lista.innerHTML = "";
 
     let suma = 0;
     let cantidadTotal = 0;
 
     carrito.forEach((producto, indice) => {
+
         suma += producto.precio * producto.cantidad;
         cantidadTotal += producto.cantidad;
 
-        lista.innerHTML += `
-            <p>
-                ${producto.nombre} - $${producto.precio} x ${producto.cantidad}
-                <button onclick="eliminarProducto(${indice})">
-                    Eliminar
-                </button>
-            </p>
-        `;
+        if (lista) {
+            lista.innerHTML += `
+                <p>
+                    ${producto.nombre} - $${producto.precio} x ${producto.cantidad}
+                    <button onclick="eliminarProducto(${indice})">
+                        Eliminar
+                    </button>
+                </p>
+            `;
+        }
     });
 
-    contador.textContent = cantidadTotal;
-    total.textContent = suma.toFixed(2);
+    if (contador) contador.textContent = cantidadTotal;
+    if (total) total.textContent = suma.toFixed(2);
 }
 
 function eliminarProducto(indice) {
-
     carrito.splice(indice, 1);
-
     actualizarCarrito();
-
 }
 
 function vaciarCarrito() {
     carrito = [];
     actualizarCarrito();
 }
-// BUSCADOR DE PRODUCTOS
 
+// BUSCADOR DE PRODUCTOS
 function iniciarBuscador() {
 
     const buscador = document.getElementById("buscarProducto");
@@ -69,7 +75,6 @@ function iniciarBuscador() {
     buscador.addEventListener("input", function() {
 
         const texto = buscador.value.toLowerCase().trim();
-
         const productos = document.querySelectorAll(".productos");
 
         productos.forEach(function(producto) {
@@ -83,37 +88,52 @@ function iniciarBuscador() {
             producto.style.display = nombre.includes(texto)
                 ? ""
                 : "none";
-
         });
-
     });
-
 }
 
-// Esperar a que el HTML esté disponible
-
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", iniciarBuscador);
-} else {
-    iniciarBuscador();
-}
+// CALCULAR DESCUENTOS
 function calcularDescuento(precio, porcentaje) {
 
     let descuento = precio * (porcentaje / 100);
-
     let precioFinal = precio - descuento;
 
     return precioFinal;
-
 }
-console.log(calcularDescuento(150, 20));
-console.log(calcularDescuento(250, 15));
-console.log(calcularDescuento(200, 30));
+
 function mostrarPrecioOferta(precio, porcentaje) {
 
     let precioFinal = calcularDescuento(precio, porcentaje);
 
     return precioFinal.toFixed(2);
-
 }
-console.log(mostrarPrecioOferta(150, 20));
+
+// INICIAR FUNCIONES CUANDO CARGUE LA PÁGINA
+function iniciarPagina() {
+
+    iniciarBuscador();
+    actualizarCarrito();
+
+    // FILTRO DE CATEGORÍAS
+    const parametros = new URLSearchParams(window.location.search);
+    const categoria = parametros.get("categoria");
+
+    const productos = document.querySelectorAll(".productos");
+
+    if (categoria) {
+
+        productos.forEach(function(producto) {
+
+            const categoriaProducto = producto.dataset.categoria;
+
+            producto.style.display =
+                categoriaProducto === categoria ? "" : "none";
+        });
+    }
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", iniciarPagina);
+} else {
+    iniciarPagina();
+}
