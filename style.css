@@ -108,7 +108,7 @@ button {
     line-height: normal;
 }
 
-div.contenedor {
+.contenedor {
     margin-top: 8px;
     margin-bottom: 5px;
 }
@@ -125,9 +125,7 @@ div.contenedor {
     font-size: 16px;
     outline: none;
 }
-/* =================================
-   DISEÑO RESPONSIVO PARA CELULARES
-   ================================= */
+
 
 @media screen and (max-width: 600px) {
 
@@ -362,4 +360,131 @@ div.contenedor {
     border-radius: 20px;
     font-size: 12px;
     font-weight: bold;
+}
+
+/* SOLO PARA LA BIENVENIDA */
+
+.bienvenida {
+    text-align: center;
+    padding: 55px 20px 85px;
+    background-color: #F7EDEB;
+}
+
+.bienvenida .logo-tienda {
+    width: 340px;
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    mix-blend-mode: multiply;
+}
+
+.bienvenida a {
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+.bienvenida h1 {
+    color: #B77F93;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.bienvenida p {
+    color: #806F70;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+/* CATEGORIAS DE CHÉRIE */
+
+.categorias {
+    padding: 45px 20px;
+    background-color: #F7EDEB;
+    text-align: center;
+}
+
+.categorias h2 {
+    color: #A66E85;
+    font-size: 27px;
+}
+
+.categorias > p {
+    color: #806F70;
+    margin-bottom: 30px;
+}
+
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 950px;
+    margin: auto;
+}
+
+.tarjeta-categoria {
+    background-color: #FFFFFF;
+    border: 1px solid #E8D5D9;
+    border-radius: 14px;
+    padding: 35px 10px;
+    transition: 0.3s;
+}
+
+.tarjeta-categoria:hover {
+    transform: translateY(-5px);
+    background-color: #F3E2E7;
+}
+
+.tarjeta-categoria h3 {
+    color: #A66E85;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .grid-categorias {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* IMÁGENES DE LAS CATEGORÍAS */
+
+.tarjeta-categoria {
+    padding: 0;
+    overflow: hidden;
+}
+
+.tarjeta-categoria img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.tarjeta-categoria h3 {
+    padding: 18px 10px;
+    margin: 0;
+}
+
+.bienvenida + .categorias {
+    margin-top: 45px;
+}
+
+/* AJUSTES PARA CELULARES */
+@media (max-width: 600px) {
+
+    .productos img {
+        width: 100%;
+        max-width: 180px;
+        height: 160px;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .tarjeta-categoria img {
+        width: 100%;
+        height: 130px;
+        object-fit: cover;
+    }
+
 }
